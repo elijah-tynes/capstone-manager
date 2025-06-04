@@ -25,8 +25,14 @@ key = os.getenv("OPENAI_API_KEY") # Specify environment variable in .env file
 # Control variable for response generation
 generate = False
 
+st.title("CapstoneManager")
+st.text("This tool can be used to assign students to projects based on the skills outlined on their resumes")
+
+# Divider element
+st.divider()
+
 # Project description document to be parsed
-project_descriptions = st.file_uploader("Upload a document containing project names, descriptions, and number of students per project clearly stated", type="pdf", accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
+project_descriptions = st.file_uploader("Upload a document with **project names**, **project descriptions**, and **number of students per project** clearly stated", type="pdf", accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
 project_string = ""
 
 if project_descriptions is not None:
@@ -39,8 +45,11 @@ if project_descriptions is not None:
     
     # st.write(project_string) DEBUGGING
 
+# Divider element
+st.divider()
+
 # Student resumes to be parsed
-student_resumes = st.file_uploader("Upload student resumes", type="pdf", accept_multiple_files=True, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
+student_resumes = st.file_uploader("Upload **student resumes**", type="pdf", accept_multiple_files=True, key=None, help=None, on_change=None, args=None, kwargs=None, disabled=False, label_visibility="visible")
 resume_list = []
 
 if student_resumes is not None:
